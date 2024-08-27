@@ -98,12 +98,26 @@ cron.schedule("0 0 1 * * *", async () => {
 });
 
 
-//!cors
+//!CORS setup
 const corsOptions = {
-  origin: "*",
-  credentials: true, //this arg is for cookies
+  origin: "https://muse-ai-frontend.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allowed methods
+  credentials: true, // Allow credentials (cookies, auth headers, etc.)
+  allowedHeaders: "Content-Type,Authorization", // Allowed headers
 };
+
+// Apply CORS middleware
 app.use(cors(corsOptions));
+
+// Explicitly handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
+
+// //!cors
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true, //this arg is for cookies
+// };
+// app.use(cors(corsOptions));
 
 //!MIDDLEWARES
 app.use(express.json()); //to parse incoming json data
