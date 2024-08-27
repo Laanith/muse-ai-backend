@@ -114,5 +114,10 @@ app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/openai", AIRouter);
 app.use("/api/v1/stripe", stripeRouter);
 
+app.get('/', (req,res)=>{
+  console.log("Got a GET request to route");
+  res.send("Good backend");
+})
+
 //!START THE SERVER
 app.listen(PORT, console.log(`server is running on PORT:${PORT}`));
