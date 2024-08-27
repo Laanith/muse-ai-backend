@@ -100,7 +100,7 @@ cron.schedule("0 0 1 * * *", async () => {
 
 //!cors
 const corsOptions = {
-  origin: "https://muse-ai-frontend.vercel.app",
+  origin: "*",
   credentials: true, //this arg is for cookies
 };
 app.use(cors(corsOptions));
